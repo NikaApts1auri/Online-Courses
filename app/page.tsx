@@ -5,6 +5,7 @@ import Testimonials from "../features/home/components/Testimonials";
 import { Course } from "../shared/types";
 
 async function getFeaturedCourses(): Promise<Course[]> {
+  //for example
   return [
     {
       id: 1,
