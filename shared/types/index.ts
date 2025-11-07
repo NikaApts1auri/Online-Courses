@@ -14,3 +14,10 @@ export interface Partner {
   name: string;
   logo: string;
 }
+export interface Course {
+  id: number;
+  title: string;
+  description: string;
+  category?: string;
+  image: string;
+}

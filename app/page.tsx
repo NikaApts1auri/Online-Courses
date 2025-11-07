@@ -1,29 +1,31 @@
-import FeaturedCourses from "../features/home/components/FeaturedCourses";
 import HeroSection from "../features/home/components/HeroSection";
-import Partners from "../features/home/components/Partners";
+import FeaturedCourses from "../features/home/components/FeaturedCourses";
 import Testimonials from "../features/home/components/Testimonials";
+import Partners from "../features/home/components/Partners";
 import { Course } from "../shared/types";
 
 async function getFeaturedCourses(): Promise<Course[]> {
-  //for example
   return [
     {
       id: 1,
       title: "React Basics",
       description: "Learn React",
       image: "/react.png",
+      category: "Frontend",
     },
     {
       id: 2,
       title: "Next.js 13",
       description: "Learn Next.js",
       image: "/next.png",
+      category: "Frontend",
     },
     {
       id: 3,
       title: "TypeScript",
       description: "Learn TypeScript",
       image: "/ts.png",
+      category: "Programming",
     },
   ];
 }
@@ -34,16 +36,12 @@ export default async function HomePage() {
 
   return (
     <main className="py-16 max-w-6xl mx-auto">
-      {/* Hero section */}
       <HeroSection />
 
-      {/* Featured Courses section */}
       <FeaturedCourses courses={courses} />
 
-      {/* Testimonials section */}
       <Testimonials testimonials={[]} />
 
-      {/* Partners section */}
       <Partners partners={partners} />
     </main>
   );

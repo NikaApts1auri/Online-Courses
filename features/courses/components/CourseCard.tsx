@@ -1,34 +1,45 @@
 "use client";
-import React from "react";
-import Link from "next/link";
+
 import Image from "next/image";
+import Button from "../../../shared/components/ui/Button";
 import { Course } from "../../../shared/types";
 
-interface CourseCardProps {
+interface Props {
   course: Course;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+export default function CourseCard({ course }: Props) {
   return (
-    <div className="border rounded shadow hover:shadow-lg transition p-4 flex flex-col">
-      <div className="relative h-40 w-full mb-4 rounded overflow-hidden">
+    <article className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-transform hover:shadow-md hover:-translate-y-1 duration-200">
+      <div className="relative w-full h-44">
         <Image
           src={course.image}
           alt={course.title}
           fill
+          sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover"
-          priority={true} // თუ above-the-fold content-ია
         />
       </div>
-      <h3 className="font-bold text-xl mb-2">{course.title}</h3>
-      <p className="text-gray-600 flex-1">{course.description}</p>
-      <Link href={`/courses/${course.id}`}>
-        <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-          View Course
-        </button>
-      </Link>
-    </div>
-  );
-};
 
-export default CourseCard;
+      <div className="p-5 flex flex-col justify-between h-[220px]">
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-2">
+            {course.title}
+          </h3>
+          <p className="text-sm text-gray-600 line-clamp-2">
+            {course.description}
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between mt-4">
+          <span className="text-sm font-medium text-orange-600">
+            {course.category}
+          </span>
+          <Button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm">
+            Enroll
+          </Button>
+        </div>
+      </div>
+    </article>
+  );
+}

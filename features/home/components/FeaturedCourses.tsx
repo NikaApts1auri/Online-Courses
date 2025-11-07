@@ -1,23 +1,28 @@
 "use client";
-import React from "react";
-import CourseCard from "../../courses/components/CourseCard";
+
+import CourseList from "../../courses/components/CourseList";
 import { Course } from "../../../shared/types";
 
 interface FeaturedCoursesProps {
   courses: Course[];
 }
 
-const FeaturedCourses: React.FC<FeaturedCoursesProps> = ({ courses }) => {
+export default function FeaturedCourses({ courses }: FeaturedCoursesProps) {
   return (
-    <section className="py-16 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6">Featured Courses</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {courses.map((course) => (
-          <CourseCard key={course.id} course={course} />
-        ))}
+    <section className="max-w-7xl mx-auto px-4 py-12">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">Featured Courses</h2>
+          <p className="text-sm text-gray-600 mt-1">
+            Hand-picked courses to boost your career.
+          </p>
+        </div>
+        <div className="text-sm text-orange-600 font-medium cursor-pointer">
+          View all
+        </div>
       </div>
+
+      <CourseList courses={courses} />
     </section>
   );
-};
-
-export default FeaturedCourses;
+}
