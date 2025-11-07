@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import Input from "../../shared/components/ui/Input";
+import Input from "../../../../shared/components/ui/Input";
 
 interface PasswordInputProps {
   register: UseFormRegisterReturn;

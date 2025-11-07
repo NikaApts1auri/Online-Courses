@@ -4,6 +4,7 @@ import Header from "../shared/components/layout/Header";
 import Footer from "../shared/components/layout/Footer";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthProvider } from "../features/auth/context/authContext";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({
@@ -33,6 +34,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </AuthProvider>
+        <Toaster position="top-right" />
       </body>
     </html>
   );

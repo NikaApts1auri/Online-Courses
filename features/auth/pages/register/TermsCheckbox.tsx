@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { UseFormRegister, RegisterOptions } from "react-hook-form";
-import Checkbox from "../../shared/components/ui/checkbox";
-import { RegisterFormData } from "../../validations/registerSchema";
+import Checkbox from "../../../../shared/components/ui/checkbox";
+import { RegisterFormData } from "../../../../validations/registerSchema";
 
 interface TermsCheckboxProps {
   register: UseFormRegister<RegisterFormData>;

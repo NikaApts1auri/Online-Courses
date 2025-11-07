@@ -16,7 +16,7 @@ const Button: FC<ButtonProps> = ({
   const base =
     "px-4 py-2  hover:cursor-pointer rounded font-semibold transition-colors duration-200";
   const variants = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700",
+    primary: "bg-gray-600 text-white hover:bg-gray-700",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
   };
 

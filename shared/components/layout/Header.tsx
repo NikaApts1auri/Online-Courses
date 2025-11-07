@@ -6,11 +6,18 @@ import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
 
 const Header: React.FC = () => {
+  //DRY- dont repeat yourself
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/courses", label: "Courses" },
+    { href: "/about", label: "About Us" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/contact", label: "Contact" },
+  ];
   const pathname = usePathname();
 
   return (
     <header className="flex justify-between items-center px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
-      {/* Left: Logo + Navigation */}
       <div className="flex items-center gap-10">
         {/* Logo */}
         <Link
@@ -20,58 +27,22 @@ const Header: React.FC = () => {
           E-Learn
         </Link>
 
-        {/* Navigation */}
+        {/* Navigation-dry */}
+
         <nav className="hidden md:flex gap-6 items-center cursor-pointer">
-          <Link
-            href="/"
-            className={`hover:text-orange-500 transition-colors ${
-              pathname === "/"
-                ? "font-semibold text-orange-500"
-                : "text-gray-700"
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            href="/courses"
-            className={`hover:text-orange-500 transition-colors ${
-              pathname === "/courses"
-                ? "font-semibold text-orange-500"
-                : "text-gray-700"
-            }`}
-          >
-            Courses
-          </Link>
-          <Link
-            href="/about"
-            className={`hover:text-orange-500 transition-colors ${
-              pathname === "/about"
-                ? "font-semibold text-orange-500"
-                : "text-gray-700"
-            }`}
-          >
-            About Us
-          </Link>
-          <Link
-            href="/pricing"
-            className={`hover:text-orange-500 transition-colors ${
-              pathname === "/pricing"
-                ? "font-semibold text-orange-500"
-                : "text-gray-700"
-            }`}
-          >
-            Pricing
-          </Link>
-          <Link
-            href="/contact"
-            className={`hover:text-orange-500 transition-colors ${
-              pathname === "/contact"
-                ? "font-semibold text-orange-500"
-                : "text-gray-700"
-            }`}
-          >
-            Contact
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`hover:text-orange-500 transition-colors ${
+                pathname === link.href
+                  ? "font-semibold text-orange-500"
+                  : "text-gray-700"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </div>
 
