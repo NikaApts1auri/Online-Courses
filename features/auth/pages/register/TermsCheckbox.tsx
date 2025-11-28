@@ -20,7 +20,11 @@ const TermsCheckbox = ({
 }: TermsCheckboxProps) => {
   return (
     <div className="flex items-start gap-2">
-      <Checkbox {...register(name, rules)} className="cursor-pointer" />
+      <Checkbox
+        {...register(name, rules)}
+        name="acceptTerms"
+        className="cursor-pointer"
+      />
       <label className="text-sm leading-snug">
         I agree with{" "}
         <Link

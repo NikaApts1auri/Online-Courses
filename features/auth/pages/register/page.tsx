@@ -26,13 +26,18 @@ const RegisterForm = () => {
   });
 
   const onSubmit = async (data: RegisterFormData) => {
-    console.log("Name:", data.name);
+    console.log("User Name:", data.userName);
     console.log("Email:", data.email);
     console.log(data.password);
-    console.log(data.agree);
+    console.log(data.acceptTerms);
 
     try {
-      await registerUser(data.name, data.email, data.password);
+      await registerUser(
+        data.userName,
+        data.email,
+        data.password,
+        data.acceptTerms
+      );
     } catch (err) {
       console.error(err);
       alert("Registration failed");
@@ -50,9 +55,11 @@ const RegisterForm = () => {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div>
-          <Input {...register("name")} placeholder="Full Name" />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          <Input {...register("userName")} placeholder="User Name" />
+          {errors.userName && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.userName.message}
+            </p>
           )}
         </div>
 
@@ -71,9 +78,9 @@ const RegisterForm = () => {
 
         <TermsCheckbox
           register={register}
-          name="agree"
+          name="acceptTerms"
           rules={{ setValueAs: (value) => !!value }}
-          error={errors.agree?.message}
+          error={errors.acceptTerms?.message}
         />
 
         <Button
