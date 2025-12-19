@@ -27,6 +27,7 @@ const LoginForm = () => {
   const onSubmit = async (data: LoginFormData) => {
     try {
       await login(data.email, data.password);
+      console.log("Login successful:", data);
       console.log("succes:", data);
     } catch (err) {
       console.error(err);

@@ -18,7 +18,7 @@ export default function GoalCard({ title, text }: GoalCardProps) {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M13 16h-1v-4h-1m1-4h.01M12 8v4m0 4h.01"
+            d="M5 13l4 4L19 7"
           />
         </svg>
       </div>

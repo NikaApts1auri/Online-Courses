@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { ContactFormData } from "../contact";
+import api from "../../../shared/lib/axiosInstance";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -37,16 +38,12 @@ export default function ContactForm() {
     }
 
     setLoading(true);
-    try {
-      const res = await fetch("https://example.com/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
 
-      if (!res.ok) throw new Error("Failed to send message");
+    try {
+      await api.post("/contact", formData);
 
       toast.success("Message sent successfully!");
+
       setFormData({
         firstName: "",
         lastName: "",

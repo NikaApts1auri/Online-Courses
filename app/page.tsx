@@ -5,29 +5,7 @@ import Partners from "../features/home/components/Partners";
 import { Course } from "../shared/types";
 
 async function getFeaturedCourses(): Promise<Course[]> {
-  return [
-    {
-      id: 1,
-      title: "React Basics",
-      description: "Learn React",
-      image: "/react.png",
-      category: "Frontend",
-    },
-    {
-      id: 2,
-      title: "Next.js 13",
-      description: "Learn Next.js",
-      image: "/next.png",
-      category: "Frontend",
-    },
-    {
-      id: 3,
-      title: "TypeScript",
-      description: "Learn TypeScript",
-      image: "/ts.png",
-      category: "Programming",
-    },
-  ];
+  return [];
 }
 
 export default async function HomePage() {

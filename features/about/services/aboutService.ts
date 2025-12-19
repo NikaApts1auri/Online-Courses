@@ -1,6 +1,5 @@
 import { Achievement, Goal } from "../ types";
 
-// დროებით — mock response (მაგალითი)
 const MOCK_ACHIEVEMENTS: Achievement[] = [
   {
     id: 1,

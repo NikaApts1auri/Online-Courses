@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     "Learn more about E-learn — our achievements, goals, and vision for the future of digital education.",
 };
 
-// ✅ Server Component (Next.js 13+ App Router)
 // პირდაპირ async — მომავალში ბექიდან წამოიღებს მონაცემებს
 export default async function AboutPage() {
   const { achievements, goals } = await getAboutData();

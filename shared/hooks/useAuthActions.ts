@@ -16,7 +16,7 @@ export function useAuthActions(setUser: (user: User | null) => void) {
 
     const userRes = await api.get<{ data: User }>("/auth/current-user");
     setUser(userRes.data.data);
-    router.push("/dashboard");
+    router.push("/");
   };
 
   const register = async (
@@ -33,7 +33,7 @@ export function useAuthActions(setUser: (user: User | null) => void) {
     });
     localStorage.setItem("token", res.data.token);
     setUser(res.data.data as User);
-    router.push("/dashboard");
+    router.push("/");
   };
 
   const logout = () => {
